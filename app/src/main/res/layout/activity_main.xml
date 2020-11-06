@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="LoginViewModel"
+            type="com.exmple.mvvm.viewmodel.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/edt_userName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
+            android:autofillHints="Enter the UserName"
+            android:inputType="text"
+            android:text="@={LoginViewModel.emailAddress}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edt_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="72dp"
+            android:autofillHints="Enter the password"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:text="@={LoginViewModel.password}"
+            app:layout_constraintStart_toEndOf="@id/edt_userName"
+            app:layout_constraintTop_toTopOf="@id/edt_userName" />
+
+        <Button
+            android:id="@+id/btn_Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="72dp"
+            android:onClick="@{(v) -> LoginViewModel.onClick(v)}"
+            android:text="Login"
+            app:layout_constraintStart_toEndOf="@id/edt_password"
+            app:layout_constraintTop_toTopOf="@id/edt_password" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
